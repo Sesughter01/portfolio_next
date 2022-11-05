@@ -1,0 +1,123 @@
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body{
+  height: 100vh;
+}
+:has(div){
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+
+} 
+
+div:has(p){
+   display: flex;
+   background-color: bisque;
+   width: clamp(250px,30vw,400px);
+   padding: 2rem;
+   text-align: center;
+  }
+  .toggle{
+    background-color: transparent;
+    border: none;
+    width: 2rem;
+    margin-inline: 1rem;
+    position: relative;
+
+  }
+  .toggle_2{
+    background-color: skyblue;
+    border: none;
+    order: 0;
+    padding: 1rem;
+    
+  }
+  .hamburger,.hamburger::before,.hamburger::after{
+    background-color: skyblue;
+    width:100%;
+    /* position: relative; */
+    display: block;
+    height: 2px;
+    transition: transform 500ms ease-in-out;
+  }
+  .hamburger::before{
+    content: "";
+    position: absolute;
+      margin-top: -8px;
+  }
+  .hamburger::after{
+     content: "";
+    position: absolute;
+    margin-top: 8px;
+    
+  }
+  :is(p,p::before,p::after){
+    transition: transform opacity 500ms ease-in-out;
+  }
+  p::before,p::after{
+    content: "";
+    display: block;
+    position: relative;
+    color: rgb(125, 125, 227);
+    width:5rem;
+    background-color: black;
+    height: 2px;
+    margin-inline: auto;
+    margin-block: .5rem;
+   
+}
+
+div:hover  .toggle .hamburger::before{
+   transform: rotate(90deg) translateX(8px);
+   
+}
+div:hover  .toggle .hamburger{
+   transform: rotate(.625turn);
+   
+}
+
+div:hover  .toggle .hamburger::after{
+  opacity: 0;
+}
+div:hover  .toggle .hamburger{
+   transform: rotate(.625turn);
+   
+}
+ div.test_2  .toggle_2{
+  transition: transform 500ms ease-in-out;
+} 
+div:hover  .toggle_2 {
+   transform: rotate(360deg);
+   
+}
+
+
+
+div:hover p::before{
+   /* transform: translateX(100%) rotate(90deg); */
+   opacity: 0.3;
+}
+div:hover p::after{
+   /* transform: translateX(-100%) scale(1.1); */
+   opacity: 0.3;
+}
+/* p::after{
+  content: "";
+  display: block;
+  position: relative;
+  color: rgb(125, 125, 227);
+  width: 5rem;
+  background-color: black;
+  height: 2px;
+  margin-inline: auto;
+  margin-block: 0.5rem;
+} */
